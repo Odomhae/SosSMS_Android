@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Elder SOS</string>
+
+    <string name="home_settings_button">Contacts &amp; Settings</string>
+    <string name="home_sos_button">SOS</string>
+    <string name="home_share_location_button">Share my location</string>
+    <string name="home_sms_permission_rationale">This app needs permission to send text messages so it can alert your emergency contacts.</string>
+    <string name="home_call_permission_rationale">This app needs permission to make phone calls so it can automatically call your top emergency contact during an SOS.</string>
+    <string name="home_location_permission_rationale">This app needs location permission to include your location in the alert message.</string>
+
+    <string name="permission_grant_button">Allow</string>
+    <string name="permission_denied_sms">Text messages won\'t be sent without this permission.</string>
+    <string name="permission_denied_call">The app can\'t auto-call your contact without this permission.</string>
+    <string name="permission_denied_location">Your location can\'t be included without this permission.</string>
+    <string name="permission_open_settings_button">Open Settings</string>
+
+    <string name="common_cancel">Cancel</string>
+    <string name="common_back">Back</string>
+
+    <string name="sos_countdown_title">Sending SOS in</string>
+    <string name="sos_message_prefix">[Elder SOS] I need help. My location:</string>
+    <string name="share_message_prefix">[Elder SOS] Sharing my current location:</string>
+    <string name="location_unavailable_text">location unavailable</string>
+    <string name="share_sent_toast">Location sent</string>
+
+    <string name="contacts_title">Emergency Contacts</string>
+    <string name="contacts_add_button">Add contact</string>
+    <string name="contacts_name_label">Name</string>
+    <string name="contacts_phone_label">Phone number</string>
+    <string name="contacts_save_button">Save</string>
+    <string name="contacts_delete_button">Delete</string>
+    <string name="contacts_edit_button">Edit</string>
+    <string name="contacts_move_up_button">Move up</string>
+    <string name="contacts_move_down_button">Move down</string>
+    <string name="contacts_max_reached">You can add up to 3 contacts</string>
+    <string name="contacts_empty_state">No emergency contacts yet. Add one to use SOS.</string>
+    <string name="contacts_priority_label">Priority %1$d</string>
+</resources>

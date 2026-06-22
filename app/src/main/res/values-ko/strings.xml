@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">안심콜</string>
+
+    <string name="home_settings_button">연락처 및 설정</string>
+    <string name="home_sos_button">SOS</string>
+    <string name="home_share_location_button">내 위치 보내기</string>
+    <string name="home_sms_permission_rationale">비상 연락처에 문자를 보내려면 문자 메시지 권한이 필요합니다.</string>
+    <string name="home_call_permission_rationale">SOS 시 1순위 비상 연락처에 자동으로 전화를 걸려면 전화 권한이 필요합니다.</string>
+    <string name="home_location_permission_rationale">알림 문자에 위치 정보를 포함하려면 위치 권한이 필요합니다.</string>
+
+    <string name="permission_grant_button">허용</string>
+    <string name="permission_denied_sms">이 권한이 없으면 문자를 보낼 수 없습니다.</string>
+    <string name="permission_denied_call">이 권한이 없으면 자동으로 전화를 걸 수 없습니다.</string>
+    <string name="permission_denied_location">이 권한이 없으면 위치 정보를 포함할 수 없습니다.</string>
+    <string name="permission_open_settings_button">설정 열기</string>
+
+    <string name="common_cancel">취소</string>
+    <string name="common_back">뒤로</string>
+
+    <string name="sos_countdown_title">SOS 전송까지</string>
+    <string name="sos_message_prefix">[안심콜] 도움이 필요합니다. 제 위치:</string>
+    <string name="share_message_prefix">[안심콜] 현재 위치를 공유합니다:</string>
+    <string name="location_unavailable_text">위치 확인 불가</string>
+    <string name="share_sent_toast">위치를 보냈습니다</string>
+
+    <string name="contacts_title">비상 연락처</string>
+    <string name="contacts_add_button">연락처 추가</string>
+    <string name="contacts_name_label">이름</string>
+    <string name="contacts_phone_label">전화번호</string>
+    <string name="contacts_save_button">저장</string>
+    <string name="contacts_delete_button">삭제</string>
+    <string name="contacts_edit_button">수정</string>
+    <string name="contacts_move_up_button">위로 이동</string>
+    <string name="contacts_move_down_button">아래로 이동</string>
+    <string name="contacts_max_reached">연락처는 최대 3명까지 추가할 수 있습니다</string>
+    <string name="contacts_empty_state">아직 비상 연락처가 없습니다. SOS를 사용하려면 추가하세요.</string>
+    <string name="contacts_priority_label">우선순위 %1$d</string>
+</resources>
