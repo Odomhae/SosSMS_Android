@@ -2,6 +2,7 @@ package com.odom.sosSms.ui.components
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
@@ -10,10 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 private val MinTouchTarget = 96.dp
+private val ButtonShape = RoundedCornerShape(MinTouchTarget / 2)
 
 /**
  * Large, high-contrast, TalkBack-labeled button shared by the SOS, share-location,
@@ -30,6 +33,7 @@ fun BigButton(
 ) {
     Button(
         onClick = onClick,
+        shape = ButtonShape,
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
             contentColor = contentColor,
@@ -39,6 +43,6 @@ fun BigButton(
             .height(MinTouchTarget)
             .semantics { this.contentDescription = contentDescription },
     ) {
-        Text(text = text, fontSize = 28.sp)
+        Text(text = text, fontSize = 28.sp, fontWeight = FontWeight.Bold)
     }
 }

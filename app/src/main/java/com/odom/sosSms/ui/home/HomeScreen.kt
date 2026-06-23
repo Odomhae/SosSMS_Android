@@ -33,9 +33,9 @@ import com.odom.sosSms.permissions.PermissionStatus
 import com.odom.sosSms.permissions.checkPermission
 import com.odom.sosSms.permissions.openAppSettings
 import com.odom.sosSms.ui.components.BigButton
-import com.odom.sosSms.ui.theme.OnShareBlue
+import com.odom.sosSms.ui.theme.OnShareGreen
 import com.odom.sosSms.ui.theme.OnSosRed
-import com.odom.sosSms.ui.theme.ShareBlue
+import com.odom.sosSms.ui.theme.ShareGreen
 import com.odom.sosSms.ui.theme.SosRed
 
 private val STARTUP_PERMISSIONS = listOf(
@@ -209,8 +209,8 @@ fun HomeScreen(
                         },
                     )
                 },
-                containerColor = ShareBlue,
-                contentColor = OnShareBlue,
+                containerColor = ShareGreen,
+                contentColor = OnShareGreen,
             )
 
             when (val step = currentStep) {

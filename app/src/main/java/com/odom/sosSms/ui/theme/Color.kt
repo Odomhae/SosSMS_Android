@@ -2,18 +2,30 @@ package com.odom.sosSms.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
+// Warm, friendly brand identity built around a caring green, with the SOS
+// button as the one deliberate exception that stays alarming red.
+val CareGreen = Color(0xFF2E7D32)
+val OnCareGreen = Color(0xFFFFFFFF)
+val CareGreenContainer = Color(0xFFE6F2E3)
+val OnCareGreenContainer = Color(0xFF1B3A1E)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+val SageSecondary = Color(0xFF6B9071)
+val OnSageSecondary = Color(0xFFFFFFFF)
 
-// High-contrast pair for the emergency SOS button.
+val WarmBackground = Color(0xFFFBF7EE)
+val WarmSurface = Color(0xFFFFFDF8)
+val WarmOnSurface = Color(0xFF2D2A26)
+
+val WarmBackgroundDark = Color(0xFF1A1F1B)
+val WarmSurfaceDark = Color(0xFF222822)
+val WarmOnSurfaceDark = Color(0xFFE7E3DA)
+
+// High-contrast pair for the emergency SOS button. Stays strong red on
+// purpose -- the one button that must read as "urgent" against the warm
+// green identity everywhere else.
 val SosRed = Color(0xFFB3261E)
 val OnSosRed = Color(0xFFFFFFFF)
 
 // High-contrast pair for the non-emergency "share my location" button.
-val ShareBlue = Color(0xFF0B5FFF)
-val OnShareBlue = Color(0xFFFFFFFF)
+val ShareGreen = Color(0xFF2E7D32)
+val OnShareGreen = Color(0xFFFFFFFF)

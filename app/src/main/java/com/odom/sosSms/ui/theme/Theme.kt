@@ -1,6 +1,5 @@
 package com.odom.sosSms.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -12,32 +11,36 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = CareGreen,
+    onPrimary = OnCareGreen,
+    secondary = SageSecondary,
+    onSecondary = OnSageSecondary,
+    background = WarmBackgroundDark,
+    onBackground = WarmOnSurfaceDark,
+    surface = WarmSurfaceDark,
+    onSurface = WarmOnSurfaceDark,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = CareGreen,
+    onPrimary = OnCareGreen,
+    primaryContainer = CareGreenContainer,
+    onPrimaryContainer = OnCareGreenContainer,
+    secondary = SageSecondary,
+    onSecondary = OnSageSecondary,
+    background = WarmBackground,
+    onBackground = WarmOnSurface,
+    surface = WarmSurface,
+    onSurface = WarmOnSurface,
 )
 
 @Composable
 fun BrainTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
-    // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    // Dynamic color is intentionally off by default: this app has a deliberate
+    // warm-green brand identity that shouldn't be replaced by the system's
+    // Material You wallpaper colors.
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
