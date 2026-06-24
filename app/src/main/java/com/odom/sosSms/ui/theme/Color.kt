@@ -16,10 +16,6 @@ val WarmBackground = Color(0xFFFBF7EE)
 val WarmSurface = Color(0xFFFFFDF8)
 val WarmOnSurface = Color(0xFF2D2A26)
 
-val WarmBackgroundDark = Color(0xFF1A1F1B)
-val WarmSurfaceDark = Color(0xFF222822)
-val WarmOnSurfaceDark = Color(0xFFE7E3DA)
-
 // High-contrast pair for the emergency SOS button. Stays strong red on
 // purpose -- the one button that must read as "urgent" against the warm
 // green identity everywhere else.
