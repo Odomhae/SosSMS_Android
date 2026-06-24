@@ -8,6 +8,13 @@ Permission grant/denial flows and real SMS/call behavior can't be exercised by u
 - [ ] Fresh install (no permissions pre-granted)
 - [ ] At least 2 real phone numbers available to receive test SMS/calls
 
+## First-launch contacts onboarding
+
+- [ ] Fresh install, no contacts saved: after the startup permission flow finishes, the app auto-navigates to the Contacts screen
+- [ ] Pressing Back from that auto-navigated Contacts screen returns to Home and does **not** immediately bounce back to Contacts
+- [ ] Force-closing and relaunching the app with still zero contacts triggers the auto-navigation again
+- [ ] With at least one contact already saved, launching the app does **not** auto-navigate to Contacts
+
 ## Permission flows
 
 - [ ] First tap on SOS shows the SMS rationale card before the system dialog

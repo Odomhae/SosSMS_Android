@@ -1,7 +1,10 @@
 package com.odom.sosSms.ui.nav
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.lifecycle.viewmodel.initializer
@@ -34,6 +37,11 @@ fun BrainNavHost(navController: NavHostController = rememberNavController()) {
     val locationProvider = remember { LocationProvider(context) }
     val smsSender = remember { SmsSender() }
 
+    // Guards the contacts-onboarding redirect to once per app launch: this state
+    // is hoisted above the NavHost so it survives Home <-> Contacts back-stack
+    // navigation, instead of resetting every time Home recomposes.
+    var contactsOnboardingChecked by remember { mutableStateOf(false) }
+
     NavHost(navController = navController, startDestination = ROUTE_HOME) {
         composable(ROUTE_HOME) {
             val shareViewModel: ShareLocationViewModel = viewModel(
@@ -52,6 +60,14 @@ fun BrainNavHost(navController: NavHostController = rememberNavController()) {
                 onNavigateToContacts = { navController.navigate(ROUTE_CONTACTS) },
                 shareLocationViewModel = shareViewModel,
                 locationProvider = locationProvider,
+                hasNoSavedContacts = {
+                    if (contactsOnboardingChecked) {
+                        false
+                    } else {
+                        contactsOnboardingChecked = true
+                        repository.contacts.first().isEmpty()
+                    }
+                },
             )
         }
         composable(ROUTE_SOS) {

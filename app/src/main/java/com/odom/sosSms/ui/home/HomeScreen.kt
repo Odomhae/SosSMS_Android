@@ -18,6 +18,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -37,6 +38,7 @@ import com.odom.sosSms.ui.theme.OnShareGreen
 import com.odom.sosSms.ui.theme.OnSosRed
 import com.odom.sosSms.ui.theme.ShareGreen
 import com.odom.sosSms.ui.theme.SosRed
+import kotlinx.coroutines.launch
 
 private val STARTUP_PERMISSIONS = listOf(
     Manifest.permission.SEND_SMS,
@@ -55,9 +57,11 @@ fun HomeScreen(
     onNavigateToContacts: () -> Unit,
     shareLocationViewModel: ShareLocationViewModel,
     locationProvider: LocationProvider,
+    hasNoSavedContacts: suspend () -> Boolean,
     modifier: Modifier = Modifier,
 ) {
     val context = LocalContext.current
+    val coroutineScope = rememberCoroutineScope()
 
     var actionQueue by remember { mutableStateOf<List<String>>(emptyList()) }
     var mandatorySet by remember { mutableStateOf<Set<String>>(emptySet()) }
@@ -148,7 +152,17 @@ fun HomeScreen(
     }
 
     LaunchedEffect(Unit) {
-        startFlow(permissions = STARTUP_PERMISSIONS, mandatory = emptySet(), onReady = {})
+        startFlow(
+            permissions = STARTUP_PERMISSIONS,
+            mandatory = emptySet(),
+            onReady = {
+                coroutineScope.launch {
+                    if (hasNoSavedContacts()) {
+                        onNavigateToContacts()
+                    }
+                }
+            },
+        )
     }
 
     val shareMessagePrefix = stringResource(R.string.share_message_prefix)
