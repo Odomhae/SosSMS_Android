@@ -57,7 +57,8 @@ ui/components/BigButton.kt    shared large-touch-target button
 ui/theme/                     colors, type, high-contrast SOS/Share color pairs
 
 data/Contact.kt, data/ContactsRepository.kt   DataStore-backed contact list (max 3, tab/newline-encoded)
-location/LocationProvider.kt, location/GeoLocation.kt   FusedLocationProviderClient wrapper
+location/LocationProvider.kt, location/GeoLocation.kt   FusedLocationProviderClient wrapper +
+                               location-enabled check / Play Services settings resolution
 sms/SmsMessageBuilder.kt (pure), sms/SmsSender.kt       message formatting + SmsManager send
 call/CallLauncher.kt          ACTION_CALL intent
 permissions/PermissionRationale.kt   rationale card / denied+Settings card composables
@@ -74,8 +75,18 @@ framework access.
 (`PermissionFlowStep`) that walks through a list of permissions one at a time, showing a
 plain-language rationale card before each system prompt, and falling back to a "denied → open
 Settings" card for permissions marked mandatory. SOS requires SMS + Call as mandatory (location
-is best-effort); Share Location requires SMS as mandatory. When adding a new permission-gated
-action, extend this queue rather than writing a parallel one-off flow.
+is best-effort); Share Location requires SMS as mandatory. A `LaunchedEffect(Unit)` in
+`HomeScreen` also runs this same queue once on first composition (`STARTUP_PERMISSIONS`, no
+mandatory set) to prime SMS/Call/Location permissions as soon as the app opens, instead of
+waiting for the user to press a button. When adding a new permission-gated action, extend this
+queue rather than writing a parallel one-off flow.
+
+**GPS-enable flow**: Both SOS and Share Location pass `needsLocationCheck = true` to `startFlow`.
+Once permissions are settled, `HomeScreen` calls `LocationProvider.isLocationEnabled()`; if
+location services are off, it calls `LocationProvider.checkLocationSettings()` (Play Services
+`SettingsClient`) and, on a `ResolvableApiException`, launches the one-tap "turn on location"
+system dialog via `ActivityResultContracts.StartIntentSenderForResult`. The flow proceeds to the
+action either way (turned on or dismissed) since location remains best-effort, never blocking.
 
 **Localization**: UI strings switch with the system locale — `values-ko/strings.xml` for Korean,
 `values/strings.xml` as the English default. Any new user-facing string needs entries in both.
